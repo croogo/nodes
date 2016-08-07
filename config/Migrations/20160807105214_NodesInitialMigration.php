@@ -1,22 +1,12 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CroogoNodesInitialMigration extends AbstractMigration
+class NodesInitialMigration extends AbstractMigration
 {
-
-    public $autoId = false;
-
     public function up()
     {
-        $table = $this->table('nodes');
-        $table
-            ->addColumn('id', 'integer', [
-                'autoIncrement' => true,
-                'default' => null,
-                'limit' => 20,
-                'null' => false,
-            ])
-            ->addPrimaryKey(['id'])
+
+        $this->table('nodes')
             ->addColumn('parent_id', 'integer', [
                 'default' => null,
                 'limit' => 20,
@@ -68,7 +58,7 @@ class CroogoNodesInitialMigration extends AbstractMigration
                 'null' => true,
             ])
             ->addColumn('promote', 'boolean', [
-                'default' => 0,
+                'default' => false,
                 'limit' => null,
                 'null' => false,
             ])
@@ -83,7 +73,7 @@ class CroogoNodesInitialMigration extends AbstractMigration
                 'null' => true,
             ])
             ->addColumn('sticky', 'boolean', [
-                'default' => 0,
+                'default' => false,
                 'limit' => null,
                 'null' => false,
             ])
@@ -138,7 +128,6 @@ class CroogoNodesInitialMigration extends AbstractMigration
                 'null' => true,
             ])
             ->create();
-
     }
 
     public function down()

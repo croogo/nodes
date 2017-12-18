@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class AddForeignKeys extends AbstractMigration
+class NodesAddForeignKeys extends AbstractMigration
 {
 
     public function up()
